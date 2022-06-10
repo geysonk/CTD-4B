@@ -5,27 +5,37 @@ import java.time.format.DateTimeFormatter;
 public class Pizzaria {
         private String produto;
         private Double valorPedido;
-        private String status;
         private Time horaPedido;
-        private Time horaEntrega;
+        private String formaPagamento;
+        private String tamanhoPizza;
 
-    public Pizzaria(String produto, Double valorPedido, String status, String dataPedido, String dataEntrega) {
+
+    public Pizzaria(String produto, Double valorPedido, Time horaPedido) {
         this.produto = produto;
         this.valorPedido = valorPedido;
-        this.status = status;
         this.horaPedido = horaPedido;
-        this.horaEntrega = horaEntrega;
+
     }
 
     public Double calcularEntrega (Double valorPedido) {
+
         if (valorPedido < 50){
             return valorPedido * 0.5;
         } else {
             return valorPedido;
         }
-    }
-    public String exibirStatusPedido (String status) {
-        return status;
+
     }
 
+    public Double calcularDesconto(Boolean clienteNovo) {
+        if (clienteNovo = true) {
+            return valorPedido - 10;
+        } else {
+            return valorPedido;
+        }
+    }
+
+    public Double getcalcularDesconto(Boolean clienteNovo) {
+        return calcularDesconto(clienteNovo);
+    }
 }
